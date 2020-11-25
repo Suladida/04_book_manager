@@ -2,6 +2,21 @@
 
 {% block content %}
 
-Here is where the books will be displayed - hooray!
+{% for book in all_books %}
+    <div class="title">   
+        "{{ book.title }}"
+    </div>
+    <div class ="author">
+        {{ book.author.first_name }} {{book.author.last_name}}
+    </div>
+    <div>
+        <span>Genre: {{book.genre}}</span>
+
+
+
+    </div>
+
+
+{% endfor %}
 
 {% endblock content %}

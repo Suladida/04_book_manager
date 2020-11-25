@@ -23,20 +23,20 @@ def new_book():
 
 # CREATE
 # # POST '/books'
-# @books_blueprint.route("/books", methods=["POST"])
-# def create_book():
+@books_blueprint.route("/books", methods=["POST"])
+def create_book():
 #     # Grab the form data:
-#     title = request.form['title']
-#     genre = request.form['genre']
-#     publisher = request.form['publisher']
-#     author_id = request.form['author_id']
+    title = request.form['title']
+    genre = request.form['genre']
+    publisher = request.form['publisher']
+    author_id = request.form['author_id']
 #     # Select author using repo:
-#     author = author_repository.select(author_id.id)
+    author = author_repository.select(author_id)
 #     # Create a new book object
-#     book = Book(title, genre, publisher, author)
+    book = Book(title, genre, publisher, author)
 #     # Save that book object back to the database with the save method
-#     book_repository.save(book)
-#     return redirect('/books')
+    book_repository.save(book)
+    return redirect('/books')
 
 # SHOW
 # GET '/books/<id>'
