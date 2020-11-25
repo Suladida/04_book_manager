@@ -3,6 +3,9 @@ from db.run_sql import run_sql
 from models.author import Author
 from models.book import Book
 
+import repositories.author_repository as author_repository
+import repositories.book_repository as book_repository
+
 
 def save(author):
     sql = "INSERT INTO authors (first_name, last_name) VALUES (%s, %s) RETURNING *"

@@ -2,6 +2,51 @@
 
 {% block content %}
 
-This is the new book form! 
+<!-- form -->
+<form action="/books" method="post">
 
-{% endblock content %}
+  
+<!-- form : input for title -->
+<div>
+<label for="title">Title:</label>
+<input type="text" 
+    name="title" 
+    id="title" 
+    placeholder="Title" 
+    required 
+    autofocus>
+</div>
+<!-- form : input for genre -->
+<div>
+<label for="genre">Genre:</label>
+<input type="text" 
+    name="genre"
+    id="genre"
+    placeholder="Genre"
+    required>
+</div>
+<!-- form : input for publisher -->
+<div>
+<label for="publisher">Publisher:</label>
+<input type="text" 
+    name="publisher"
+    id="publisher"
+    placeholder="Publisher"
+    required>
+</div>
+<!-- form : select author from a list -->
+<div>
+<label for="author_id">Author:</label>
+<select name="author_id" id="author">
+    {% for author in all_authors %}
+    <option value="{{author.id}}">{{author.first_name}} {{author.last_name}}</option>
+    {% endfor %}
+    
+</select>
+</div>
+<!-- form : submit button Add Book -->
+<button type="submit">Add Book</button>
+</form>
+
+{% endblock %}
+
