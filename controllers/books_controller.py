@@ -38,8 +38,12 @@ def create_book():
     book_repository.save(book)
     return redirect('/books')
 
-# SHOW
-# GET '/books/<id>'
+# # SHOW
+# # GET '/books/<id>'
+@books_blueprint.route('/books/<id>')
+def show_book(id):
+    book = book_repository.select(id)
+    return render_template('/books/book.html', book=book)
 
 
 # EDIT
@@ -53,3 +57,7 @@ def create_book():
 
 # DELETE
 # DELETE '/books/<id>'
+@books_blueprint.route('/books/<id>/delete', methods=["POST"])
+def delete_book(id):
+    book_repository.delete(id)
+    return redirect('/tasks')
