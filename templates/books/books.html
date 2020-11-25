@@ -4,17 +4,17 @@
 
 {% for book in all_books %}
     <div class="title">   
-        "{{ book.title }}"
+        <span><b>Title: </b>"{{ book.title }}"</span>
     </div>
+
     <div class ="author">
-        {{ book.author.first_name }} {{book.author.last_name}}
+        <span><b>Author: </b>{{ book.author.first_name }} {{book.author.last_name}}</span>
     </div>
-    <div>
-        <span>Genre: {{book.genre}}</span>
 
-
-
+    <div class ="genre">
+        <span><b>Genre: </b>{{book.genre}}</span>
     </div>
+    <br>
 
 
 {% endfor %}
