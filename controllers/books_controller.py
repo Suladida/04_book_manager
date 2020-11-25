@@ -60,4 +60,4 @@ def show_book(id):
 @books_blueprint.route('/books/<id>/delete', methods=["POST"])
 def delete_book(id):
     book_repository.delete(id)
-    return redirect('/tasks')
+    return redirect('/books')
